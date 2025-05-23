@@ -15,6 +15,7 @@ submitButton.addEventListener("click", async function (e) {
 
     const result = await response.json();
     if(result.status == 200){
+        window.location.href = "/admin/categoryPage";
         alert(result.message);
         form.reset();
     } else {
