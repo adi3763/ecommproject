@@ -22,7 +22,7 @@ Route::get('/admin/dashboard', [UrlController::class, 'showDashboardPage'])->nam
 Route::get('/user/home', [UrlController::class,'showUserHomePage'])->name('user.home')->middleware(UserMiddleware::class);
 Route::get('/admin/categoryPage', [UrlController::class,'showCategoryPage'])->name('admin.categorypage')->middleware(AdminMiddleware::class);
 // Route::get('/admin/show/category', [CategoryController::class, 'showCategory'])->name('admin.category')->middleware(AdminMiddleware::class);
-Route::get('/admin/category/loadData/{id}', [SubCategoryController::class, 'showAll'])->name('load.subcategory');
+Route::get('/admin/category/loadData', [SubCategoryController::class, 'showAll'])->name('load.subcategory');
 // Route::get('/admin/product',[UrlController::class,'showProductPage'])->name('admin.productpage')->middleware(AdminMiddleware::class);
 Route::get('admin/product',[ProductController::class,'showProductPage'])->name('admin.productpage');
 Route::get('/product/subcategories/{id}',[ProductController::class,'showSubcategory'])->name('product.subcategory');

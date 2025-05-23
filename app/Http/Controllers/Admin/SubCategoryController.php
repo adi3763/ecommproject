@@ -38,8 +38,9 @@ class SubCategoryController extends Controller
 
     }
 
-   public function showAll($id){
-    $data = Category::with('subcategories')->find($id);
+   public function showAll(Request $request){
+    $categoryId = $request->input('category_id');
+    $data = Category::with('subcategories')->find($categoryId);
     if (!$data) {
         return response()->json([
             'status' => 404,
