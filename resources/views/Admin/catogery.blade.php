@@ -122,7 +122,7 @@
   <div class="card mb-4">
     <div class="card-header">Add Subcategory</div>
     <div class="card-body">
-      <form action="{{ route('subcategory.insert') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ secure_url('/admin/subcategory/insert') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="parentCategory" class="form-label">Parent Category</label>
@@ -188,7 +188,7 @@
   <div class="card m-3">
   <div class="card p-4 shadow-sm">
 <h2 class="mb-3">Load Subcategories</h2>
-<form action="{{ route('load.subcategory') }}" id="loadCategory" method="GET"  >
+<form action="{{ secure_url('/admin/category/loadData') }}" id="loadCategory" method="GET"  >
     <div class="mb-3">
       <label for="category" class="form-label">Select Category</label>
       <select id="category" name="category_id" class="form-select">
