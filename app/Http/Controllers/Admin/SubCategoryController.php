@@ -24,7 +24,7 @@ class SubCategoryController extends Controller
         if (Auth::check() && Auth::user()->role === 'admin') {
             if ($req->hasFile('subcategory_image')) {
                 $imagePath = $req->file('subcategory_image')->store('subcategory_image', 'public');
-    $subcategory['subcategory_image'] = $imagePath;
+                $subcategory['subcategory_image'] = $imagePath;
             }   
             $sub =  Subcategory::create($subcategory);
            return response()->json([
