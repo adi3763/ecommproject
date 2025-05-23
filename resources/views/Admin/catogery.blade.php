@@ -188,7 +188,7 @@
   <div class="card m-3">
   <div class="card p-4 shadow-sm">
 <h2 class="mb-3">Load Subcategories</h2>
-<form action="{{ route('load.subcategory',[$category->id] ) }}" id="loadCategory" method="GET"  >
+<form action="{{ route('load.subcategory',[$data->id] ) }}" id="loadCategory" method="GET"  >
     <div class="mb-3">
       <label for="category" class="form-label">Select Category</label>
       <select id="category" class="form-select">
