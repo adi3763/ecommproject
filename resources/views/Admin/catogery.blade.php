@@ -98,7 +98,7 @@
   <div class="card mb-4">
     <div class="card-header">Add New Category</div>
     <div class="card-body">
-      <form action="{{ route('category.insert') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ secure_url('admin/category/insert') }}" method="POST">
         @csrf
         <div class="mb-3">
           <label for="categoryName" class="form-label">Category Name</label>
