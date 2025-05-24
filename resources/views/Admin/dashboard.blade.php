@@ -138,7 +138,7 @@
 
     <!-- Footer -->
     <footer class="mt-5 text-center">
-        <form method="POST" action="{{ route('logout') }}" class="d-inline">
+        <form method="POST" action="{{ secure_url('/logout') }}" class="d-inline">
             @csrf
             <button type="submit" class="btn btn-danger">
                 <i class="bi bi-box-arrow-right"></i> Logout
