@@ -33,7 +33,7 @@
       <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
       <li class="nav-item"><a class="nav-link" href="{{ route('cart') }}">Cart</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-       <form method="POST" action="{{ route('logout') }}" class="d-inline">
+       <form method="POST" action="{{ secure_url('/logout') }}" class="d-inline">
             @csrf
             <button type="submit" class="btn btn-danger">
                 <i class="bi bi-box-arrow-right"></i> Logout
