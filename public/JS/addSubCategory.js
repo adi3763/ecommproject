@@ -39,7 +39,7 @@ const categoryId = categoryName.options[categoryName.selectedIndex].getAttribute
         alert("Invalid category selected.");
         return;
     }
-    const response = await fetch(`/admin/category/loadData/${categoryId}`,{
+    const response = await fetch(`/admin/category/loadData?category_id=${categoryId}`,{
         method:"GET",
         headers: {
             "Content-Type": "application/json",
@@ -146,8 +146,6 @@ subCategoryTableBody.querySelectorAll('.delete-subcategory').forEach((button) =>
     row.innerHTML = `<td colspan="4">No subcategories found.</td>`;
     subCategoryTableBody.appendChild(row);
 }
-
-});
 
 // After you finish rendering the table rows:
 

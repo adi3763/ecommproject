@@ -123,7 +123,7 @@
     </div>
 @endif
 
-      <form method="POST" action="{{ route('add.product') }}" enctype="multipart/form-data">
+      <form method="POST" action="{{ secure_url('/add/products') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Custom Upload Box -->
@@ -322,7 +322,7 @@ function previewMultipleImages(event) {
   
 </script>
 
-<script src="{{ asset('JS/product.js') }}"></script>
+<script src="{{ secure_asset('JS/product.js') }}"></script>
 
 </body>
 </html>
