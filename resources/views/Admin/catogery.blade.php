@@ -234,7 +234,7 @@
 
 </div> 
 
-<script src="{{ asset('JS/addSubCategory.js') }}"></script>
+<script src="{{ secure_asset('JS/addSubCategory.js') }}"></script>
 
 
 
