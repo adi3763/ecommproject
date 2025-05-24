@@ -71,7 +71,7 @@
       </div>  
     @endif
     <h3 class="text-center mb-4">Sign In</h3>
-    <form action="{{ route('login.check') }}" method="POST">
+    <form action="{{ secure_url('/login')}}" method="POST">
       @csrf
       <div class="mb-3 form-group">
         <i class="fa fa-envelope form-icon"></i>
