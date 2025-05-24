@@ -149,5 +149,5 @@ subCategoryTableBody.querySelectorAll('.delete-subcategory').forEach((button) =>
 
 // After you finish rendering the table rows:
 
-
+});
 
