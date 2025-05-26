@@ -33,9 +33,6 @@ RUN composer install --no-dev --optimize-autoloader
 # Generate Laravel application key
 RUN php artisan key:generate
 
-# Optimize Laravel caches (optional but recommended)
-RUN php artisan config:cache && php artisan route:cache
-
 # Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
@@ -45,5 +42,9 @@ RUN mkdir -p public/uploads/photos && chown -R www-data:www-data public/uploads 
 
 EXPOSE 80
 
-# Start Apache in the foreground
+# Add entrypoint script
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
