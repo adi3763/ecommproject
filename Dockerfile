@@ -40,6 +40,10 @@ RUN chown -R www-data:www-data storage bootstrap/cache \
 # Ensure uploads/photos directory exists and is writable
 RUN mkdir -p public/uploads/photos && chown -R www-data:www-data public/uploads && chmod -R 775 public/uploads
 
+# Ensure storage symlink exists and permissions are correct
+RUN php artisan storage:link || true
+RUN chown -R www-data:www-data storage public/storage && chmod -R 755 storage public/storage
+
 EXPOSE 80
 
 # Add entrypoint script
