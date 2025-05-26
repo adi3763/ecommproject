@@ -46,7 +46,7 @@
                 @foreach ($item->product->productimage as $image )
                     
                 
-              <td><img src="{{ asset( $image->product_image) }}" class="cart-img"></td>
+              <td><img src="{{ secure_asset($image->product_image) }}" class="cart-img"></td>
               @endforeach
               <td>{{ $item->product->productname }}</td>
               <td>₹{{ number_format($item->product->product_price) }}</td>

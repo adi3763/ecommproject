@@ -26,7 +26,7 @@
         @foreach ($product->productimage as $image )
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card h-100">
-              <img src="{{ asset($image->product_image) }}" class="card-img-top" alt="{{ $product->productname }}">
+              <img src="{{ secure_asset($image->product_image) }}" class="card-img-top" alt="{{ $product->productname }}">
               <div class="card-body">
                 <h6 class="card-title">{{ $product->productname }}</h6>
                 <div class="d-flex align-items-center mb-2">

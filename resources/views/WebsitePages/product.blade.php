@@ -53,7 +53,7 @@
             <!-- Product Image -->
             <div class="col-md-6">
                 @if ($product->productimage->count())
-                    <img src="{{ asset($product->productimage->first()->product_image) }}"
+                    <img src="{{ secure_asset($product->productimage->first()->product_image) }}"
                         alt="{{ $product->productname }}" class="img-fluid">
                 @endif
             </div>
