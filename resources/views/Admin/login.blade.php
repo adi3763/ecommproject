@@ -55,6 +55,14 @@
     .form-control {
       padding-left: 40px;
     }
+    @media (max-width: 575.98px) {
+      .login-container {
+        max-width: 100%;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+      h3 { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>

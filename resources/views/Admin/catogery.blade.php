@@ -29,6 +29,8 @@
        color: white;
        position: fixed;
        padding-top: 1rem;
+       width: 15em;
+       max-width: 100vw;
      }
      .sidebar a {
        color: white;
@@ -43,6 +45,21 @@
        margin-left: 250px;
        margin-right: 0;
        padding: 2rem;
+     }
+     @media (max-width: 991.98px) {
+       .sidebar {
+         position: static;
+         width: 100%;
+         min-height: auto;
+       }
+       .main-content {
+         margin-left: 0;
+         padding: 1rem 0.5rem;
+       }
+     }
+     @media (max-width: 767.98px) {
+       .main-content { padding: 0.5rem 0.2rem; }
+       .card { margin-bottom: 1rem; }
      }
      .card {
        border: none;

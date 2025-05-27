@@ -30,8 +30,9 @@
       background-color: #343a40;
       color: white;
       position: fixed;
-   
       padding-top: 1rem;
+      width: 15em;
+      max-width: 100vw;
     }
     .sidebar a {
       color: white;
@@ -43,9 +44,24 @@
       background-color: #495057;
     }
     .main-content {
-    margin-left: 15em;
+      margin-left: 15em;
       padding: 2rem;
-
+    }
+    @media (max-width: 991.98px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 1rem 0.5rem;
+      }
+    }
+    @media (max-width: 767.98px) {
+      .main-content { padding: 0.5rem 0.2rem; }
+      .image-upload-box { padding: 1rem; }
+      .card { margin-bottom: 1rem; }
     }
     .image-upload-box {
       border: 2px dashed #ccc;
@@ -77,21 +93,19 @@
     input[type="file"] {
       display: none;
     }
-
     .dt-button {
-    background-color: #fad60b !important;
-    color: rgb(0, 0, 0) !important;
-    border: none !important;
-    padding: 8px 15px !important;
-    border-radius: 4px !important;
-    margin-right: 8px !important;
-    font-size: 14px !important;
-    width: 150px !important;
-  }
-
-  .dt-button:hover {
-    background-color: #abd70b !important;
-  }
+      background-color: #fad60b !important;
+      color: rgb(0, 0, 0) !important;
+      border: none !important;
+      padding: 8px 15px !important;
+      border-radius: 4px !important;
+      margin-right: 8px !important;
+      font-size: 14px !important;
+      width: 150px !important;
+    }
+    .dt-button:hover {
+      background-color: #abd70b !important;
+    }
   </style>
 </head>
 

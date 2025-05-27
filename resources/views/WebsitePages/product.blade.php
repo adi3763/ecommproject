@@ -31,6 +31,44 @@
         .btn-action {
             width: 48%;
         }
+
+        @media (max-width: 767.98px) {
+            .container {
+                padding: 1rem 0.5rem;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+
+            .col-md-6 {
+                width: 100%;
+            }
+
+            .btn-action {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .img-fluid {
+                max-height: 220px;
+                object-fit: cover;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .container {
+                padding: 0.5rem 0.2rem;
+            }
+
+            .img-fluid {
+                max-height: 140px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 

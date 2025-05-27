@@ -37,8 +37,9 @@
             background-color: #343a40;
             color: white;
             position: fixed;
-
             padding-top: 1rem;
+            width: 15em;
+            max-width: 100vw;
         }
 
         .sidebar a {
@@ -55,7 +56,33 @@
         .main-content {
             margin-left: 15em;
             padding: 2rem;
+        }
 
+        @media (max-width: 991.98px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                min-height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 1rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .main-content {
+                padding: 0.5rem 0.2rem;
+            }
+
+            .image-upload-box {
+                padding: 1rem;
+            }
+
+            .card {
+                margin-bottom: 1rem;
+            }
         }
 
         .image-upload-box {

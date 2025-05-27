@@ -1,4 +1,4 @@
-<div class="sidebar d-flex flex-column position-fixed" style="width: 15em;">
+<div class="sidebar d-flex flex-column position-fixed w-100 w-lg-auto" style="width: 15em; max-width:100vw;">
     <h4 class="text-center mb-4">eShop Admin</h4>
     <a href="{{ route('admin.dashboard') }}"><i class="fas fa-home me-2"></i> Dashboard</a>
     <a href="{{ route('admin.productpage') }}"><i class="fas fa-box me-2"></i> Products</a>
@@ -10,4 +10,4 @@
       @csrf
       <button id="logout" name="logout"><i class="fas fa-sign-out-alt me-2"></i> Logout</button>
     </form> --}}
-  </div>
+</div>
