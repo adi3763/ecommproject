@@ -37,17 +37,6 @@
       font-size: 1.5rem;
       margin-right: 10px;
     }
-    @media (max-width: 767.98px) {
-      .container { padding: 1rem 0.5rem; }
-      .row > .col-md-6, .row > .col-md-4 { width: 100%; }
-      .address-card, .payment-option { margin-bottom: 0.75rem; }
-      .table { font-size: 0.95rem; }
-    }
-    @media (max-width: 575.98px) {
-      .container { padding: 0.5rem 0.2rem; }
-      h2, h4, h5 { font-size: 1.1rem; }
-      .table-responsive { overflow-x: auto; }
-    }
     </style>
 </head>
 <body>
@@ -56,6 +45,7 @@
   
   <form action="{{ secure_url('/order/placed') }}" method="POST">
     @csrf
+
     <!-- Selected Address -->
      <div class="row g-3 mb-5">
       @foreach($addresses as $address)
@@ -71,6 +61,14 @@
         </div>
       @endforeach
     </div>
+
+    {{-- <h5>Delivery Address</h5>
+    <div class="border rounded p-3 mb-4">
+      <strong>{{ $selectedAddress->full_name }}</strong><br>
+      {{ $selectedAddress->address_line }}, {{ $selectedAddress->city }}, {{ $selectedAddress->state }} - {{ $selectedAddress->pincode }}<br>
+      Phone: {{ $selectedAddress->phone }}
+      <input type="hidden" name="address_id" value="{{ $selectedAddress->id }}">
+    </div> --}}
 
     <!-- Selected Payment Method -->
     {{-- <h5>Payment Method</h5>
@@ -103,36 +101,34 @@
 
     <!-- Cart Items -->
     <h5>Items in Your Cart</h5>
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        @php $total = 0; @endphp
+        @foreach($cartItems as $item)
+          @php $subtotal = $item->quantity * $item->product->product_price; 
+          $total += $subtotal; 
+          @endphp
           <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Subtotal</th>
+            <td>{{ $item->product->productname }}</td>
+            <td>{{ $item->quantity }}</td>
+            <td>₹{{ number_format($item->product->product_price) }}</td>
+            <td>₹{{ number_format($subtotal) }}</td>
           </tr>
-        </thead>
-        <tbody>
-          @php $total = 0; @endphp
-          @foreach($cartItems as $item)
-            @php $subtotal = $item->quantity * $item->product->product_price; 
-            $total += $subtotal; 
-            @endphp
-            <tr>
-              <td>{{ $item->product->productname }}</td>
-              <td>{{ $item->quantity }}</td>
-              <td>₹{{ number_format($item->product->product_price) }}</td>
-              <td>₹{{ number_format($subtotal) }}</td>
-            </tr>
-          @endforeach
-          <tr>
-            <td colspan="3" class="text-end"><strong>Total</strong></td>
-            <td><strong>₹{{ number_format($total) }}</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        @endforeach
+        <tr>
+          <td colspan="3" class="text-end"><strong>Total</strong></td>
+          <td><strong>₹{{ number_format($total) }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="text-end">
       <button type="submit" class="btn btn-success">Place Order</button>

@@ -15,17 +15,6 @@
     .badge-offer { background-color: #cc0c39; color: white; font-size: 0.75rem; }
     .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .rating-stars { color: #FFA41C; font-size: 0.9rem; }
-    @media (max-width: 767.98px) {
-      .card { margin-bottom: 1rem; }
-      .card-img-top { height: 180px; object-fit: cover; }
-      .card-title { font-size: 1rem; }
-      .price { font-size: 1rem; }
-    }
-    @media (max-width: 575.98px) {
-      .row.g-4 { --bs-gutter-x: 0.5rem; --bs-gutter-y: 0.5rem; }
-      .card { padding: 0.5rem; }
-      .card-img-top { height: 120px; }
-    }
   </style>
 </head>
 <body>

@@ -38,15 +38,6 @@
       font-size: 1.5rem;
       margin-right: 10px;
     }
-    @media (max-width: 767.98px) {
-      .container { padding: 1rem 0.5rem; }
-      .row > .col-md-6, .row > .col-md-4 { width: 100%; }
-      .address-card, .payment-option { margin-bottom: 0.75rem; }
-    }
-    @media (max-width: 575.98px) {
-      .container { padding: 0.5rem 0.2rem; }
-      h2, h4 { font-size: 1.1rem; }
-    }
   </style>
 </head>
 <body>

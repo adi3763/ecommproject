@@ -15,24 +15,6 @@
         object-fit:fill;
         height: 100%;
     }
-    @media (max-width: 991.98px) {
-      .carousel-item { height: 350px; }
-      .carousel-item img { height: 350px; }
-    }
-    @media (max-width: 767.98px) {
-      .carousel-item { height: 200px; }
-      .carousel-item img { height: 200px; }
-      .container { padding: 1rem 0.5rem; }
-      .card { margin-bottom: 1rem; }
-      .card-img-top { height: 120px; object-fit: cover; }
-      .card-title { font-size: 1rem; }
-    }
-    @media (max-width: 575.98px) {
-      .carousel-item { height: 120px; }
-      .carousel-item img { height: 120px; }
-      .container { padding: 0.5rem 0.2rem; }
-      h3 { font-size: 1.1rem; }
-    }
     </style>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
