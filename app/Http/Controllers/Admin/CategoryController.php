@@ -19,10 +19,11 @@ class CategoryController extends Controller
         ]);
 
         if (Auth::check() && Auth::user()->role === 'admin') {
-            if($req->hasFile('images')){
+        if($req->hasFile('images')){
             $fileName = $req->file('images')->getClientOriginalName();
             $path = $req->file('images')->storeAs('category_images', $fileName, 'public');
-            }
+            $category['images'] = $path; // <-- Save path to DB
+        }
             Category::create($category);
             return redirect()->back()->with('success', 'Category added successfully.');
         } else {
