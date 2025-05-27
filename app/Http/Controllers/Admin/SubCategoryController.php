@@ -17,7 +17,7 @@ class SubCategoryController extends Controller
             'subcategory_name' => 'required|unique:subcategories,subcategory_name',
             'category_id' => 'required|exists:categories,id',
             'subcategory_slug'=> 'required|max:255',
-            'subcategory_image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'subcategory_image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5048',
 
         ]);
 
