@@ -71,13 +71,14 @@
  @foreach ($categories as $category)
   <div class="col-6 col-md-3">
     <div class="card h-100 position-relative">
-      <img src="{{ secure_asset( $category->images) }}" class="card-img-top" alt="{{ $category->category_name }}">
+      <img src="{{ asset('storage/' .$category->images) }}" class="card-img-top" alt="{{ $category->category_name }}">
       <div class="card-body">
         <h5 class="card-title">{{$category->category_name}}</h5>
       </div>
       <a href="{{ route('shopbycategory', ['category' =>$category->id, 'slug'=>$category->slug]) }}" class="stretched-link"></a>
     </div>
   </div>
+  
 @endforeach
   </div>
 </div>
@@ -91,7 +92,7 @@
       
     <div class="col-sm-6 col-md-4 col-lg-3">
       <div class="card h-100">
-        <img src="{{ secure_asset($subcategory->subcategory_image) }}" class="card-img-top" alt="Product 1">
+        <img src="{{ asset('storage/' .$subcategory->subcategory_image) }}" class="card-img-top" alt="Product 1">
         <div class="card-body text-center">
           <h5 class="card-title">{{$subcategory->subcategory_name}}</h5>
         </div>

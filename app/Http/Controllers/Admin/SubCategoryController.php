@@ -22,10 +22,10 @@ class SubCategoryController extends Controller
         ]);
 
         if (Auth::check() && Auth::user()->role === 'admin') {
-            if ($req->hasFile('subcategory_image')) {
-                $imagePath = $req->file('subcategory_image')->store('subcategory_image', 'public');
-                $subcategory['subcategory_image'] = $imagePath;
-            }   
+             if($req->hasFile('subcategory_image')){
+            $fileName = $req->file('subcategory_image')->getClientOriginalName();
+            $path = $req->file('subcategory_image')->storeAs('subcategory_images', $fileName, 'public');
+            } 
             $sub =  Subcategory::create($subcategory);
            return response()->json([
                 'status' => 200,
