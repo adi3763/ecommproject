@@ -43,7 +43,7 @@
 <div class="container py-5">
   <h2 class="mb-4 text-center">Review Your Order</h2>
   
-  <form action="{{ route('orderPlaced') }}" method="POST">
+  <form action="{{ secure_url('/order/placed') }}" method="POST">
     @csrf
 
     <!-- Selected Address -->

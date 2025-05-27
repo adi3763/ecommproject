@@ -77,7 +77,7 @@
                 <p class="mb-4">{{ $product->product_discription }}</p>
 
 
-                <form action="{{ route('addToCart') }}" method="POST">
+                <form action="{{ secure_url('/cart/add') }}" method="POST">
                     @csrf
                     <div class="d-flex justify-content-between mt-4">
                         <input type="hidden" name="product_id" value="{{ $product->id }}">

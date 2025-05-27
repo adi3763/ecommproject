@@ -26,7 +26,7 @@
       </div>
     @endif
 
-    <form action=" {{ route('address.add') }} " method="POST">
+    <form action=" {{ secure_url('/address/add') }} " method="POST">
       @csrf
       {{-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> --}}
       <div class="mb-3">
