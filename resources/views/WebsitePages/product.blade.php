@@ -66,6 +66,7 @@
                 <div class="rating-stars mb-2">
                     ★★★★☆ <small>(4 star ratings)</small>
                 </div>
+
                 <p class="price">
                     <span class="price">₹{{ number_format($product->product_price) }}</span>
                 </p>
