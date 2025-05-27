@@ -13,30 +13,41 @@ class SubCategoryController extends Controller
     //
     public function insertSubCategory(Request $req)
     {
-        $subcategory = $req->validate([
+        if (!(Auth::check() && Auth::user()->role === 'admin')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'You do not have permission to add subcategories.'
+            ], 403);
+        }
+
+        $validator = \Validator::make($req->all(), [
             'subcategory_name' => 'required|unique:subcategories,subcategory_name',
             'category_id' => 'required|exists:categories,id',
             'subcategory_slug'=> 'required|max:255',
             'subcategory_image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5048',
-
         ]);
 
-        if (Auth::check() && Auth::user()->role === 'admin') {
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'message' => $validator->errors()->first()
+            ], 422);
+        }
+
+        $subcategory = $validator->validated();
+
         if($req->hasFile('subcategory_image')){
             $fileName = $req->file('subcategory_image')->getClientOriginalName();
             $path = $req->file('subcategory_image')->storeAs('subcategory_images', $fileName, 'public');
-            $subcategory['subcategory_image'] = $path; // <-- Save path to DB
-        }
-            $sub =  Subcategory::create($subcategory);
-           return response()->json([
-                'status' => 200,
-                'message' => 'Subcategory added successfully',
-                'subcategory' => $sub
-            ]);
-        } else {
-            return redirect()->back()->with('error', 'You do not have permission to add subcategories.');
+            $subcategory['subcategory_image'] = $path;
         }
 
+        $sub = Subcategory::create($subcategory);
+        return response()->json([
+            'status' => 200,
+            'message' => 'Subcategory added successfully',
+            'subcategory' => $sub
+        ]);
     }
 
    public function showAll(Request $request){
